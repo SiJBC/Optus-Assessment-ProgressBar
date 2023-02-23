@@ -1,65 +1,68 @@
 import Head from 'next/head'
-import Image from 'next/image'
-
 import styles from '@/pages/index.module.css'
+import Bars from '@/components/Bars'
+import { Container } from '@/components/Container'
+import Controllers from '@/components/Controllers'
+import Button from '@/components/Button'
+import React, { useEffect, useState } from 'react'
+import DropDown from '@/components/DropDown'
 
-export default function Home() {
+type ProgressLabels = 'Progress1' | 'Progress2' | 'Progress3'
+
+export default function Home () {
+  const [progressOne, setProgressOne] = useState<number>(0)
+  const [progressTwo, setProgressTwo] = useState<number>(0)
+  const [progressThree, setProgressThree] = useState<number>(0)
+
+  const [updateValue, setUpdateValue] = useState<number>(0)
+
+  const [selectedProgress, setSelectedProgress] =
+    useState<ProgressLabels>('Progress1')
+
+  const handler = (e: React.ChangeEvent<HTMLButtonElement>) => {
+    setUpdateValue(Number(e.target.value))
+  }
+
+  const dropDownHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value)
+    e.preventDefault()
+    setSelectedProgress(e.target.value as ProgressLabels)
+  }
+
+  useEffect(() => {
+    if (selectedProgress === 'Progress1') {
+      setProgressOne(progressOne + updateValue)
+    }
+    if (selectedProgress === 'Progress2') {
+      setProgressTwo(progressTwo + updateValue)
+    }
+    if (selectedProgress === 'Progress3') {
+      setProgressThree(progressThree + updateValue)
+    }
+    return setUpdateValue(0)
+  }, [progressOne, progressThree, progressTwo, selectedProgress, updateValue])
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Optus Progress Bar</title>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/new" className={styles.card}>
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <h1 className={styles.title}>Progress Bar</h1>
+        <Container>
+          {[progressOne, progressTwo, progressThree].map((el, i) => (
+            <Bars key={i} percentage={el} />
+          ))}
+          <Controllers>
+            <DropDown progress={selectedProgress} handler={dropDownHandler} />
+            {[-25, -10, 10, 25].map((el, i) => (
+              <Button handler={handler} key={i} value={el} />
+            ))}
+          </Controllers>
+        </Container>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 {
+  "name": "optus-progressbar-assessment",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,9 +9,13 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@types/jest": "^29.4.0",
+    "eslint-config-next": "^13.1.6",
+    "eslint-plugin-testing-library": "^5.10.2",
     "next": "latest",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-select": "^5.7.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",
@@ -18,6 +23,7 @@
     "@testing-library/user-event": "14.2.0",
     "@types/react": "18.0.9",
     "@types/testing-library__jest-dom": "5.14.5",
+    "eslint": "^8.34.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
     "typescript": "4.6.4"

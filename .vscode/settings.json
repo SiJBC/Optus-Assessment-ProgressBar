@@ -1,0 +1,7 @@
+{
+    "editor.defaultFormatter": "schroeter.prettier-vscode-space-parenthesis",
+    "editor.formatOnSave": true,
+    "cSpell.words": [
+        "percentagelabel"
+    ]
+}

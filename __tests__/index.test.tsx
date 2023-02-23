@@ -6,9 +6,8 @@ describe('Home', () => {
     render(<Home />)
 
     const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
+      name: /Progress Bar/i
     })
-
     expect(heading).toBeInTheDocument()
   })
 })
