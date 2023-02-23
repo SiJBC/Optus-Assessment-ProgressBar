@@ -24,7 +24,6 @@ export default function Home () {
   }
 
   const dropDownHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value)
     e.preventDefault()
     setSelectedProgress(e.target.value as ProgressLabels)
   }
