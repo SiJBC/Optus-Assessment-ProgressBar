@@ -1,8 +1,9 @@
-import React from 'react'
-import styles from './components.module.css'
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { SelectChangeEvent } from '@mui/material/Select'
 
 type DropDownProps = {
-  handler: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  handler: (e: SelectChangeEvent) => void
   progress: ProgressLabels
 }
 
@@ -10,37 +11,31 @@ export type ProgressLabels = 'Progress1' | 'Progress2' | 'Progress3'
 const options: Array<ProgressLabels> = ['Progress1', 'Progress2', 'Progress3']
 
 const DropDown: React.FC<DropDownProps> = ({ handler, progress }) => {
+  const [value, setValue] = useState<string | undefined>('Progress1')
+
+  const inputHandler = (e: SelectChangeEvent) => {
+    setValue(e.target.value)
+    handler(e)
+  }
+
   return (
-    <div
-    data-testid ="dropdown"
-    >
-      <select
-        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-          handler(e as unknown as React.ChangeEvent<HTMLSelectElement>)
-        }
-        className={styles.hiddenMobile}
-        value={progress}
-        name='progress'
+    <FormControl fullWidth>
+      <InputLabel id='demo-simple-select-label'>
+        Select Progress Bar{' '}
+      </InputLabel>
+      <Select
+        datatest-id='dropdown'
+        value={value}
+        label='Progress Bar'
+        onChange={inputHandler}
       >
         {options.map((el, i) => (
-          <option key={i} value={el}>
+          <MenuItem key={i} value={el}>
             {el}
-          </option>
+          </MenuItem>
         ))}
-      </select>
-      <div
-        className={styles.hiddenDesktop}
-        onChange={(e: React.ChangeEvent<HTMLDivElement>) => handler(e as any)}
-        style={{ paddingRight: '30px' }}
-      >
-        {options.map((el, i) => (
-          <React.Fragment key={i}>
-            <input type='radio' value={el} name={el} />
-            {el}
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
+      </Select>
+    </FormControl>
   )
 }
 

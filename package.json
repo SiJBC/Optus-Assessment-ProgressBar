@@ -9,11 +9,15 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.10",
     "@types/jest": "^29.4.0",
     "eslint-config-next": "^13.1.6",
     "eslint-plugin-testing-library": "^5.10.2",
     "next": "latest",
     "react": "^18.1.0",
+    "react-btn-checkbox": "^0.0.2",
     "react-dom": "^18.1.0",
     "react-select": "^5.7.0"
   },

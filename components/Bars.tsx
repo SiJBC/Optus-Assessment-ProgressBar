@@ -30,12 +30,23 @@ const Bars: React.FC<BarProps> = ({ percentage }) => {
   useEffect(() => {
     if (percentage <= 0) setStatus(ProgressBarClasses.inactive)
     if (percentage > 100) setStatus(ProgressBarClasses.error)
-    if (percentage > 0 && percentage <= 100)setStatus(ProgressBarClasses.active)
+    if (percentage > 0 && percentage <= 100)
+      setStatus(ProgressBarClasses.active)
   }, [percentage])
 
   return (
     <div className={style.progressBarContainer}>
-      <div className={style.percentagelabel}>{JSON.stringify(percentage)}%</div>
+      <div
+        style={{
+          color:
+            status === (ProgressBarClasses.error || ProgressBarClasses.active)
+              ? 'white'
+              : ''
+        }}
+        className={style.percentagelabel}
+      >
+        {JSON.stringify(percentage)}%
+      </div>
       <div
         style={
           {

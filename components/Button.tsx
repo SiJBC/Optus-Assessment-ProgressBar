@@ -1,13 +1,14 @@
 import React from 'react'
+import Button from '@mui/material/Button'
 
 type ButtonProps = {
   value: number
   handler: (e: React.ChangeEvent<HTMLButtonElement>) => void
 }
 
-const Button: React.FC<ButtonProps> = ({ value, handler }) => {
+const StyledButton: React.FC<ButtonProps> = ({ value, handler }) => {
   return (
-    <button
+    <Button
       data-testid='button'
       value={value}
       onClick={e =>
@@ -16,8 +17,8 @@ const Button: React.FC<ButtonProps> = ({ value, handler }) => {
     >
       {value > 0 && <span>+</span>}
       {value}
-    </button>
+    </Button>
   )
 }
 
-export default Button
+export default StyledButton

@@ -20,11 +20,13 @@
     height: 100%;
     width: var(--progress-bar-width);
     max-width: 100%;
-    transition: width 1s;
-    transition-timing-function: ease;
+    transition: width 0.5s;
+    transition-timing-function: linear;
 }
 
 .percentagelabel{
+    font-size: 1rem;
+    font-weight: bold;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -44,31 +46,15 @@
     justify-content: center;
     gap: 20px;
     max-width: 800px;
-    margin-top: 3rem;
-  }
-  
-  .hiddenDesktop{
-    display: none;
+    margin-top: 1rem;
   }
 
   .flex{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 2rem;
     max-width: 800px;
-    margin-top: 3rem;
-  }
-
-  .hiddenMobile{
-    display: block;
-  }
-
-  @media screen and (max-width:600px) {
-    .hiddenMobile{
-        display: none;
-    } 
-  .hiddenDesktop{
-            display: grid
-        }
+    margin-top: 1rem;
   }

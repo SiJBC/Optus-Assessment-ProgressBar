@@ -6,6 +6,9 @@ import Controllers from '@/components/Controllers'
 import Button from '@/components/Button'
 import React, { useEffect, useState } from 'react'
 import DropDown from '@/components/DropDown'
+import { SelectChangeEvent } from '@mui/material/Select'
+import ButtonGroup from '@mui/material/ButtonGroup'
+import { InputLabel } from '@mui/material'
 
 type ProgressLabels = 'Progress1' | 'Progress2' | 'Progress3'
 
@@ -23,22 +26,23 @@ export default function Home () {
     setUpdateValue(Number(e.target.value))
   }
 
-  const dropDownHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const dropDownHandler = (e: SelectChangeEvent) => {
     e.preventDefault()
     setSelectedProgress(e.target.value as ProgressLabels)
   }
 
-  function numberFilter(progressValue: number, updateValue: number): number{
-      if(progressValue + updateValue < 0){
-        return 0
-      }
-      return progressValue + updateValue
+  function numberFilter (progressValue: number, updateValue: number): number {
+    if (progressValue + updateValue < 0) {
+      return 0
+    }
+    return progressValue + updateValue
   }
 
   useEffect(() => {
     // type guard NaN
-    if(!updateValue) {
-      return }
+    if (!updateValue) {
+      return
+    }
     if (selectedProgress === 'Progress1') {
       setProgressOne(numberFilter(progressOne, updateValue))
     }
@@ -50,8 +54,6 @@ export default function Home () {
     }
     return setUpdateValue(0)
   }, [progressOne, progressThree, progressTwo, selectedProgress, updateValue])
-
-
 
   return (
     <div className={styles.container}>
@@ -67,10 +69,17 @@ export default function Home () {
             <Bars key={i} percentage={el} />
           ))}
           <Controllers>
+            <div>
+              <InputLabel size='normal' id='demo-simple-select-label'>
+                Select Progression
+              </InputLabel>
+              <ButtonGroup variant='outlined'>
+                {[-25, -10, 10, 25].map((el, i) => (
+                  <Button handler={handler} key={i} value={el} />
+                ))}
+              </ButtonGroup>
+            </div>
             <DropDown progress={selectedProgress} handler={dropDownHandler} />
-            {[-25, -10, 10, 25].map((el, i) => (
-              <Button handler={handler} key={i} value={el} />
-            ))}
           </Controllers>
         </Container>
       </main>

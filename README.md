@@ -21,7 +21,7 @@ https://vercel.com/sijbc/optus-assessment-progress-bar
 
 - yarn dev
 
-!http://localhost:3000
+http://localhost:3000
 
 
  ## Production build, linting and type checking
