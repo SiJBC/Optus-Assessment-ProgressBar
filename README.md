@@ -1,18 +1,13 @@
-# Simon Colman submission for Progress bar Assessment for Optus Senior Front End Developer Position with
-## Next.js + Jest
+# Simon Colman submission for Optus Progress Bar Assessment 
 
-## Explanation of solution. 
-
-### The metaframework Next.js for the following:
-- starter template was built with the command    
-$ yarn create next-app --example with-jest with-jest-app
-- linting and type checking with default setup
-- SSR capabilities 
-- running tests in watch mode 
-- deployment with vercel at 
-!https://vercel.com/sijbc/optus-assessment-progress-bar
-
-
+### Solution Built with Next.js Metaframework:
+- starter template cloned with the command    
+  yarn create next-app --example with-jest with-jest-app
+- linting and type checking with Next configuration
+- SSR and SSG capabilities 
+- jest setup with performing tests in watch mode
+- deployment with vercel at   
+https://vercel.com/sijbc/optus-assessment-progress-bar
 
 ## Tests in watch mode:
 
