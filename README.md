@@ -1,11 +1,11 @@
 # Simon Colman submission for Progress bar Assessment for Optus Senior Front End Developer Position with
 ## Next.js + Jest
 
-## Explanation of my solution. 
+## Explanation of solution. 
 
-### I used The metaframework Next.js this frameworks helps with the following:
-- starter template was built with the command 
-$$ yarn create next-app --example with-jest with-jest-app
+### The metaframework Next.js for the following:
+- starter template was built with the command    
+$ yarn create next-app --example with-jest with-jest-app
 - linting and type checking with default setup
 - SSR capabilities 
 - running tests in watch mode 
@@ -14,28 +14,25 @@ $$ yarn create next-app --example with-jest with-jest-app
 
 
 
-## To check linting and types run :
-
-yarn build
-
-## To run Tests in watch mode
+## Tests in watch mode:
 
 - yarn test
 
-## To run Tests once =
+## Test once:
 
 - yarn test:ci
 
-## To run the app in dev mode
+## Run app in dev mode:
 
 - yarn dev
 
 !http://localhost:3000
 
 
- ## To run Linting Type Checking and build
+ ## Production build, linting and type checking
 
  - yarn build 
+ - yarn start
 
 
 
