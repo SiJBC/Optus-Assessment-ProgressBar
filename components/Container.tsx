@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from './components.module.css'
 
-export const Container: React.FC<{ children: React.ReactNode[] }> = ({
+ const Container: React.FC<{ children: React.ReactNode[] }> = ({
   children
 }) => {
-  return <div className={styles.grid}>{children}</div>
+  return <div data-testid="container" className={styles.grid}>{children}</div>
 }
+
+export default Container

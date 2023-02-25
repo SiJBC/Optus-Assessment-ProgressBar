@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '@/pages/index.module.css'
 import Bars from '@/components/Bars'
-import { Container } from '@/components/Container'
+import Container from '@/components/Container'
 import Controllers from '@/components/Controllers'
 import Button from '@/components/Button'
 import React, { useEffect, useState } from 'react'
@@ -28,18 +28,30 @@ export default function Home () {
     setSelectedProgress(e.target.value as ProgressLabels)
   }
 
+  function numberFilter(progressValue: number, updateValue: number): number{
+      if(progressValue + updateValue < 0){
+        return 0
+      }
+      return progressValue + updateValue
+  }
+
   useEffect(() => {
+    // type guard NaN
+    if(!updateValue) {
+      return }
     if (selectedProgress === 'Progress1') {
-      setProgressOne(progressOne + updateValue)
+      setProgressOne(numberFilter(progressOne, updateValue))
     }
     if (selectedProgress === 'Progress2') {
-      setProgressTwo(progressTwo + updateValue)
+      setProgressTwo(numberFilter(progressTwo, updateValue))
     }
     if (selectedProgress === 'Progress3') {
-      setProgressThree(progressThree + updateValue)
+      setProgressThree(numberFilter(progressThree, updateValue))
     }
     return setUpdateValue(0)
   }, [progressOne, progressThree, progressTwo, selectedProgress, updateValue])
+
+
 
   return (
     <div className={styles.container}>

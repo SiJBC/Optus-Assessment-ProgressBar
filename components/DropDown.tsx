@@ -7,11 +7,13 @@ type DropDownProps = {
 }
 
 export type ProgressLabels = 'Progress1' | 'Progress2' | 'Progress3'
-const options = ['Progress1', 'Progress2', 'Progress3']
+const options: Array<ProgressLabels> = ['Progress1', 'Progress2', 'Progress3']
 
 const DropDown: React.FC<DropDownProps> = ({ handler, progress }) => {
   return (
-    <div>
+    <div
+    data-testid ="dropdown"
+    >
       <select
         onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
           handler(e as unknown as React.ChangeEvent<HTMLSelectElement>)

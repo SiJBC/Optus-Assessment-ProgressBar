@@ -30,8 +30,7 @@ const Bars: React.FC<BarProps> = ({ percentage }) => {
   useEffect(() => {
     if (percentage <= 0) setStatus(ProgressBarClasses.inactive)
     if (percentage > 100) setStatus(ProgressBarClasses.error)
-    if (percentage > 0 && percentage <= 100)
-      setStatus(ProgressBarClasses.active)
+    if (percentage > 0 && percentage <= 100)setStatus(ProgressBarClasses.active)
   }, [percentage])
 
   return (
@@ -50,6 +49,4 @@ const Bars: React.FC<BarProps> = ({ percentage }) => {
   )
 }
 
-const memoedBars = memo(Bars)
-
-export default memoedBars
+export default Bars
