@@ -3,12 +3,12 @@
 ### Solution Built with Next.js Metaframework:
 - starter template cloned with the command    
   yarn create next-app --example with-jest with-jest-app
-- linting and type checking with Next configuration
-- SSR and SSG capabilities 
-- jest setup with performing tests in watch mode
+- linting and typescript with Next configuration
+- SSR and SSG capabilities, static site by default 
+- jest setup with tests in watch mode
 - deployment with vercel at   
 https://vercel.com/sijbc/optus-assessment-progress-bar
-
+`
 ## Tests in watch mode:
 
 - yarn test

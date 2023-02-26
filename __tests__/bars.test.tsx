@@ -16,7 +16,7 @@ describe('Bar component should render percentage number and change color dependi
     const progressBar = screen.queryByTestId('progress-bars')
     expect(progressBar).toHaveClass('active')
   })
-  it('background should have a class of inactive because prop value is greater than 0 and less than 100', () => {
+  it('background should have a class of inactive because prop value is less than 0', () => {
     render(<Bars percentage={percentagePropInActive} />)
     const progressBar = screen.queryByTestId('progress-bars')
     expect(progressBar).toHaveClass('inactive')
